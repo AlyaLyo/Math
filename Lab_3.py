@@ -5,8 +5,6 @@ import numpy
 def f(x,y):
     return x**2
 
-mesh = 0.1
-
 print("Колличество сторон многоугольника : ")
 n = int(input())
 print("Мелкость разбиения : ")
