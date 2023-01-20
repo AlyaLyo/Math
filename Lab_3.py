@@ -7,11 +7,12 @@ def f(x,y):
 
 print("Колличество сторон многоугольника : ")
 n = int(input())
-print("Мелкость разбиения : ")
-mesh = float(input())
 
-x = numpy.arange(-100, 100, mesh)
-y = numpy.arange(-100, 100, mesh)
+mesh = 0.1
+x_a, x_b = -100, 100
+y_a, y_b = -100, 100
+x = numpy.arange(x_a, x_b, mesh)
+y = numpy.arange(y_a, y_b, mesh)
 
 x_arr = []
 y_arr = []
@@ -27,7 +28,6 @@ for i in x:
     for j in y:
         x_i = i + ( mesh / 2 )
         y_j = j + ( mesh / 2 )
-        #f = f(x_i, y_j)
 
         in_pol = 0;
         t = n - 1;
@@ -42,9 +42,11 @@ for i in x:
         s = s + ( f(x_i, y_j) * in_pol * mesh * mesh)
         s = (round(s * 100)) / 100
 
-
+M = 2 * x_b
+err = mesh**2 * M * (x_b - x_a + y_b - y_a)
 
 print("Мелкость разбиения : " + str(mesh))
 print("Значение интеграла : " + str(s))
+print("Значение ошибки : " + str(err))
 
 
