@@ -1,5 +1,3 @@
-import math
-import matplotlib.pyplot as plot
 import numpy
 
 def f(x,y):
@@ -44,9 +42,11 @@ for i in x:
 
 M = 2 * x_b
 err = mesh**2 * M * (x_b - x_a + y_b - y_a)
+per = round((err / (400000000 / 3)), 4)
 
 print("Мелкость разбиения : " + str(mesh))
 print("Значение интеграла : " + str(s))
 print("Значение ошибки : " + str(err))
+print("Погрешность, % : " + str(per))
 
 
